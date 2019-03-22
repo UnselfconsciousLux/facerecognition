@@ -61,7 +61,7 @@ class App extends Component {
       bottomRow = height - (item.bottom_row * height);
       // console.log(item);
       // console.log(leftCol, topRow, rightCol, bottomRow);
-      box_parameters.push([{leftCol: leftCol, topRow: topRow, rightCol: rightCol, bottomRow: bottomRow}])
+      box_parameters.push({leftCol: leftCol, topRow: topRow, rightCol: rightCol, bottomRow: bottomRow})
       console.log('Im in calculateFaceLocation');
       // console.log(box_parameters[0][0].leftCol)
     }
@@ -79,22 +79,23 @@ class App extends Component {
   }
 
   displayFaceBox = (box) => {
-    console.log('im in displayFaceBox')
-    var leftCol = 0, rightCol = 0, topRow = 0, bottomRow = 0;
-    for(var j = 0; j < box.box_parameters.length; j++) {
-      console.log('Im inside looop: j = ', j)
-      var inside_box = box.box_parameters[j][0];
-      leftCol = inside_box.leftCol;
-      topRow = inside_box.topRow;
-      rightCol = inside_box.rightCol;
-      bottomRow = inside_box.bottomRow;
-      console.log(leftCol, topRow, rightCol, bottomRow);
-    }
-    this.setState({box: {leftCol, topRow, rightCol, bottomRow}});
+    // console.log('im in displayFaceBox')
+    // var leftCol = 0, rightCol = 0, topRow = 0, bottomRow = 0;
+    // for(var j = 0; j < box.box_parameters.length; j++) {
+    //   console.log('Im inside looop: j = ', j)
+    //   var inside_box = box.box_parameters[j][0];
+    //   leftCol = inside_box.leftCol;
+    //   topRow = inside_box.topRow;
+    //   rightCol = inside_box.rightCol;
+    //   bottomRow = inside_box.bottomRow;
+    //   console.log(leftCol, topRow, rightCol, bottomRow);
+    //   this.setState({box: inside_box});
+
+    // }
 
     
-    //this.setState({box: box});
-    console.log('boxie', box);
+    this.setState({box: box});
+    //console.log('boxie', box);
 
   }
 
