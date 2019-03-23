@@ -52,7 +52,7 @@ class App extends Component {
     var leftCol = 0, rightCol = 0, topRow = 0, bottomRow = 0;
     var clarifaiFace = data.outputs[0].data.regions
 
-    console.log(clarifaiFace.length)
+    //console.log(clarifaiFace.length)
     for(var i =0; i < clarifaiFace.length; i++){
       const item = clarifaiFace[i].region_info.bounding_box;
       leftCol = item.left_col * width;
@@ -61,24 +61,27 @@ class App extends Component {
       bottomRow = height - (item.bottom_row * height);
       // console.log(item);
       // console.log(leftCol, topRow, rightCol, bottomRow);
-      box_parameters.push({leftCol: leftCol, topRow: topRow, rightCol: rightCol, bottomRow: bottomRow})
-      console.log('Im in calculateFaceLocation');
+      box_parameters.push({left_Col: leftCol, top_Row: topRow, right_Col: rightCol, bottom_Row: bottomRow})
+      //console.log('Im in calculateFaceLocation');
       // console.log(box_parameters[0][0].leftCol)
     }
     // const image = document.getElementById('input_image');
     // const width = Number(image.width);
     // const height = Number(image.height);
-    return {
+    return [...box_parameters]
+    // return {box_parameters}
       // leftCol: clarifaiFace.left_col * width,
       // topRow: clarifaiFace.top_row * height,
       // rightCol: width - (clarifaiFace.right_col * width),
       // bottomRow: height - (clarifaiFace.bottom_row * height)
-      box_parameters
-    }
+      
+    
 
   }
 
   displayFaceBox = (box) => {
+    //console.log('box in App.js', box)
+    //console.log('This length is in App.js displayFaceBox function', box.box_parameters.length)
     // console.log('im in displayFaceBox')
     // var leftCol = 0, rightCol = 0, topRow = 0, bottomRow = 0;
     // for(var j = 0; j < box.box_parameters.length; j++) {
@@ -108,7 +111,7 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input})
 
-    console.log('click');
+    //console.log('click');
 
     app.models.predict(Clarifai.FACE_DETECT_MODEL, 
                       this.state.input)
