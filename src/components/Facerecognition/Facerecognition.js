@@ -1,31 +1,37 @@
 import React from 'react';
 import './Facerecognition.css'
 
+
+
 var FaceRecognition = ({box, imageUrl}) => {
-	var leftCol = 0, rightCol = 0, topRow = 0, bottomRow = 0;
-	//console.log('box in Facerecognition', box);
-	for(var i =0; i < box.length; i++) {
-		console.log(box[i].right_Col)
-		leftCol = box[i].left_Col;
-		rightCol = box[i].right_Col;
-		topRow = box[i].top_Row;
-		bottomRow = box[i].bottom_Row;
-		console.log(leftCol, rightCol, topRow, bottomRow);
-	}
+	// var leftCol = 0, rightCol = 0, topRow = 0, bottomRow = 0;
+	// //console.log('box in Facerecognition', box);
+	
+
+	// for(var i =0; i < box.length; i++) {
+	// 	//console.log(box[i].right_Col)
+	// 	leftCol = box[i].left_Col;
+	// 	rightCol = box[i].right_Col;
+	// 	topRow = box[i].top_Row;
+	// 	bottomRow = box[i].bottom_Row;
+	// 	console.log(leftCol, rightCol, topRow, bottomRow);
+	// }
+
+	console.log(box);
 
 
 	return (
 		<div className='center ma'>
 			<div className='absolute mt3'>
 				<img id = 'input_image' alt='' src={imageUrl} width = '500px' height = 'auto'/>
-				<div className='bounding-box'>
-					{box.map((index) => (
-							<div key={index} style={{
-								top:topRow,
-								right:rightCol,
-								bottom:bottomRow,
-								left:leftCol}}>
-							</div>
+				<div className='bounding_box'>
+				 	{box.map((currentBox, index) => (
+						<div key={index} style={{
+							top:currentBox.top_Row,
+							right:currentBox.right_Col,
+							bottom:currentBox.bottom_Row,
+							left:currentBox.left_Col}}>
+						</div>
 						)
 					)}
 				</div>
@@ -50,4 +56,23 @@ export default FaceRecognition;
  //      bottomRow = inside_box.bottomRow;
  //      //console.log(leftCol, topRow, rightCol, bottomRow);
  //    // }
- 				// <div className = 'bounding_box' style = {{top: topRow, right: rightCol, bottom: bottomRow, left: leftCol }}>
+ 		// <div className = 'bounding_box' style = {{top: topRow, right: rightCol, bottom: bottomRow, left: leftCol }}>
+
+ 				// 			{boxes.map((index) => (
+					// 		<div key={index} style={{
+					// 			top:topRow,
+					// 			right:rightCol,
+					// 			bottom:bottomRow,
+					// 			left:leftCol}}>
+					// 		</div>
+					// 	)
+					// )}
+
+
+
+
+
+
+
+
+

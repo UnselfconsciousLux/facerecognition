@@ -35,7 +35,7 @@ class App extends Component {
     this.state = {
       input: '',
       imageUrl: '',
-      box: {},
+      box: [],
       route: 'signin', /*Route Keeps track of where we are on the page*/
       isSignedIn: false
 
